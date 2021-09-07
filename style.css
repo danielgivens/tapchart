@@ -25,7 +25,7 @@ button {
   border: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   outline: none;
-  background-image: url("/roll-chart/images/icon-undo.png");
+  background-image: url("./images/icon-undo.png");
   background-size: 40px 40px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -40,6 +40,8 @@ section {
   max-width: 600px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex-wrap: wrap;
   padding-bottom: calc(var(--vh, 1vh) * 25);
 }
 section img {
@@ -48,6 +50,7 @@ section img {
   height: auto;
   display: block;
   opacity: 0.6;
+  order:var(--order);
 }
 section img.next {
   opacity: 1;

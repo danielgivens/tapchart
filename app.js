@@ -55,14 +55,17 @@ function clickHandler(event){
     if(element.tagName == 'IMG' && element.classList.contains("next") && !element.classList.contains("last") ){
       element.classList.remove('next');
       element.classList.add('done'); 
-      element.nextSibling.classList.add('next');   
+      $next = parseFloat(element.getAttribute('data-order'))+1; 
+      document.querySelector('[data-order="'+$next+'"]').classList.add('next');   
     } else if(element.tagName == 'BUTTON'){
       element = document.querySelectorAll('.next')[0];
       if(!element.classList.contains("first")){
        element.classList.add('temp');
        element.classList.remove('next');
-       element.previousSibling.classList.add('next');
-       element.previousSibling.classList.remove('done');       
+       $prev = parseFloat(element.getAttribute('data-order'))-1; 
+       document.querySelector('[data-order="'+$prev+'"]').classList.add('next');   
+       document.querySelector('[data-order="'+$prev+'"]').classList.remove('done');  
+  
       }
 
     }
@@ -72,12 +75,13 @@ var imageClass = 'none';
 window.onload = function() {
 
   for(var i = 0; i<=Gallery.images.length-1; i++) {
-
     imgLoad(Gallery.images[i]).then(function(arrayResponse) {
-    
+     // console.log(arrayResponse[1].index);
       var myImage = document.createElement('img');
       var imageURL = window.URL.createObjectURL(arrayResponse[0]);
       myImage.src = imageURL;
+      myImage.setAttribute('data-order',arrayResponse[1].order);
+      myImage.style.setProperty('--order',arrayResponse[1].order);
       myImage.classList.add(arrayResponse[1].class);
       if(arrayResponse[1].class === 'first'){
         myImage.classList.add('next');
@@ -88,4 +92,6 @@ window.onload = function() {
       console.log(Error);
     });
   }
+
+
 };
