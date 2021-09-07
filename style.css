@@ -1,0 +1,59 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+html {
+  background: black;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100vw;
+}
+
+button {
+  position: fixed;
+  top: calc(var(--vh, 1vh) * 100);
+  transform: translateY(-150%) translateX(-50%);
+  left: 50%;
+  z-index: 100;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: lime;
+  color: black;
+  width: 80px;
+  border-radius: 100%;
+  height: 80px;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  outline: none;
+  background-image: url("/images/icon-undo.png");
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+button span {
+  display: none;
+}
+
+section {
+  width: 100vw;
+  margin: 0 auto;
+  max-width: 600px;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: calc(var(--vh, 1vh) * 25);
+}
+section img {
+  margin: 0 auto;
+  width: 75%;
+  height: auto;
+  display: block;
+  opacity: 0.6;
+}
+section img.next {
+  opacity: 1;
+  width: 100%;
+  margin-top: calc(var(--vh, 1vh) * 25);
+}
+section img.done {
+  display: none;
+}
