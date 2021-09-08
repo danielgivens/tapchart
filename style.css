@@ -4,6 +4,9 @@ html {
   height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
 }
+body{
+  touch-action: pan-x pan-y;
+}
 
 button {
   position: fixed;
