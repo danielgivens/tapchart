@@ -1,13 +1,13 @@
 self.addEventListener('install', function(event) {
-  event.waitUntil(
+  event.waitUntil((async () => {
     caches.open('v1').then(function(cache) {
       return cache.addAll([
         './',
         './index.html',
         './style.css',
         './app.js',
+        './image-list.js',      
         './images/icon-undo.png',
-        './image-list.js',
         './images/roll-0.jpg',
         './images/roll-1.jpg',
         './images/roll-2.jpg',
@@ -82,24 +82,39 @@ self.addEventListener('install', function(event) {
         './images/roll-71.jpg',
         './images/roll-72.jpg', 
       ]);
-    })
-  );
+    });
+   })());
 });
+self.addEventListener('activate', (event) => {
+  event.waitUntil((async () => {
+    // Enable navigation preload if it's supported.
+    // See https://developers.google.com/web/updates/2017/02/navigation-preload
+    if ('navigationPreload' in self.registration) {
+      await self.registration.navigationPreload.enable();
+    }
+  })());
 
+  // Tell the active service worker to take control of the page immediately.
+  self.clients.claim();
+});
 self.addEventListener('fetch', function(event) {
   event.respondWith(caches.match(event.request).then(function(response) {
+  
     if (response !== undefined) {
+      //console.log(`[Service Worker] Fetching resource from cache: ${event.request.url}`);
       return response;
     } else {
+      //console.log(`[Service Worker] Fetching resource from network: ${event.request.url}`);
       return fetch(event.request).then(function (response) {
         let responseClone = response.clone();
         
         caches.open('v1').then(function (cache) {
+        // console.log(`[Service Worker] Caching resource: ${event.request.url}`);
           cache.put(event.request, responseClone);
         });
         return response;
       }).catch(function () {
-        return caches.match('./images/roll-0.jpg');
+        //console.log('offline');
       });
     }
   }));

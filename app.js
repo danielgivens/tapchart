@@ -1,18 +1,18 @@
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./sw.js', { scope: '/roll-chart/' }).then(function(reg) {
+  navigator.serviceWorker.register('./sw.js', { scope: './' }).then(function(reg) {
     if(reg.installing) {
-      //console.log('Service worker installing');
+      console.log('Service worker installing');
     } else if(reg.waiting) {
-      //console.log('Service worker installed');
+      console.log('Service worker installed');
     } else if(reg.active) {
-      //console.log('Service worker active');
+      console.log('Service worker active');
     }
   }).catch(function(error) {
     console.log('Registration failed with ' + error);
   });
-}
+} 
 function imgLoad(imgJSON) {
   return new Promise(function(resolve, reject) {
     var request = new XMLHttpRequest();
@@ -65,15 +65,12 @@ function clickHandler(event){
        $prev = parseFloat(element.getAttribute('data-order'))-1; 
        document.querySelector('[data-order="'+$prev+'"]').classList.add('next');   
        document.querySelector('[data-order="'+$prev+'"]').classList.remove('done');  
-  
       }
-
     }
 }
 var imgSection = document.querySelector('section');
 var imageClass = 'none';
 window.onload = function() {
-
   for(var i = 0; i<=Gallery.images.length-1; i++) {
     imgLoad(Gallery.images[i]).then(function(arrayResponse) {
      // console.log(arrayResponse[1].index);
@@ -87,11 +84,8 @@ window.onload = function() {
         myImage.classList.add('next');
       }
       imgSection.appendChild(myImage);
-
     }, function(Error) {
       console.log(Error);
     });
   }
-
-
 };
