@@ -1,4 +1,4 @@
-let vh = window.innerHeight * 0.01;
+      let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js', { scope: './' }).then(function(reg) {
@@ -52,20 +52,23 @@ window.addEventListener('resize', function () {
 document.addEventListener( "click", clickHandler );
 function clickHandler(event){
     var element = event.target;
-    if(element.tagName == 'IMG' && element.classList.contains("next") && !element.classList.contains("last") ){
-      element.classList.remove('next');
-      element.classList.add('done'); 
-      $next = parseFloat(element.getAttribute('data-order'))+1; 
-      document.querySelector('[data-order="'+$next+'"]').classList.add('next');   
-    } else if(element.tagName == 'BUTTON'){
+    if(element.tagName == 'BUTTON'){
       element = document.querySelectorAll('.next')[0];
       if(!element.classList.contains("first")){
-       element.classList.add('temp');
-       element.classList.remove('next');
-       $prev = parseFloat(element.getAttribute('data-order'))-1; 
-       document.querySelector('[data-order="'+$prev+'"]').classList.add('next');   
-       document.querySelector('[data-order="'+$prev+'"]').classList.remove('done');  
+        element.classList.add('temp');
+        element.classList.remove('next');
+        $prev = parseFloat(element.getAttribute('data-order'))-1; 
+        document.querySelector('[data-order="'+$prev+'"]').classList.add('next');   
+        document.querySelector('[data-order="'+$prev+'"]').classList.remove('done');  
       }
+    } else{
+      element = document.querySelectorAll('.next')[0];
+      if(!element.classList.contains("last")){
+        element.classList.add('done');
+        element.classList.remove('next');
+       $next = parseFloat(element.getAttribute('data-order'))+1; 
+       document.querySelector('[data-order="'+$next+'"]').classList.add('next');     
+      }    
     }
 }
 var imgSection = document.querySelector('section');
