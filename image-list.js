@@ -1,5 +1,5 @@
 var Gallery = { 'images' : [
-{'url': 'images/roll-1.jpg', 'order':'1', 'class':'none'},
+{'url': 'images/roll-1.jpg', 'order':'1', 'class':'next'},
 {'url': 'images/roll-2.jpg', 'order':'2', 'class':'none'},
 {'url': 'images/roll-3.jpg', 'order':'3', 'class':'none'},
 {'url': 'images/roll-4.jpg', 'order':'4', 'class':'none'},
