@@ -101,5 +101,5 @@ var Gallery = { 'images' : [
 {'url': 'images/roll-100.jpg', 'order':'100', 'class':'none'},
 {'url': 'images/roll-101.jpg', 'order':'101', 'class':'none'},
 {'url': 'images/roll-102.jpg', 'order':'102', 'class':'none'},
-{'url': 'images/roll-103.jpg', 'order':'103', 'class':'last'}, 
+{'url': 'images/roll-103.jpg', 'order':'103', 'class':'last'}
 ]};
