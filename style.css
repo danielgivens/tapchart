@@ -57,13 +57,10 @@ section img {
   flex-basis: 100%;
   order:var(--order);
   transform: scale(0.8);
-  filter:blur(5px);
-  transition: opacity .5s ease, transform .5s ease, filter .5s ease;
 }
 section img.next {
   opacity: 1;
   transform: scale(1);
-  filter:blur(0px);
   margin-top: calc(var(--vh, 1vh) * 25);
 }
 section img.done {
