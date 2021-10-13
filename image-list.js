@@ -22,6 +22,7 @@ var Gallery = { 'images' : [
 {'url': 'images/roll-21.jpg', 'order':'21', 'class':'none'},
 {'url': 'images/roll-22.jpg', 'order':'22', 'class':'none'},
 {'url': 'images/roll-23.jpg', 'order':'23', 'class':'none'},
+{'url': 'images/roll-24.jpg', 'order':'24', 'class':'none'},
 {'url': 'images/roll-25.jpg', 'order':'25', 'class':'none'},
 {'url': 'images/roll-26.jpg', 'order':'26', 'class':'none'},
 {'url': 'images/roll-27.jpg', 'order':'27', 'class':'none'},
