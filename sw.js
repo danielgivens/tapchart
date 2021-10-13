@@ -33,7 +33,6 @@ self.addEventListener('install', function(event) {
         './images/roll21.jpg',
         './images/roll22.jpg',
         './images/roll23.jpg',
-        './images/roll24.jpg',
         './images/roll25.jpg',
         './images/roll26.jpg',
         './images/roll27.jpg',
